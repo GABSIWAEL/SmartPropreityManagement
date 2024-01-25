@@ -1,0 +1,292 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Property Management</title>
+    <style>
+        body::before {
+            content: "  Une Version Demonstartive Sous Les Droits Du";
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+            font-size: 40px;
+            font-weight: bold;
+            color: rgba(255, 0, 0, 0.12);
+            z-index: 1000;
+            pointer-events: none;
+            white-space: pre;
+            /* Preserve whitespace and allow line breaks */
+        }
+
+        body::after {
+            content: "     Créateur Wael Gabsi";
+            position: fixed;
+            top: 60%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+            font-size: 40px;
+            font-weight: bold;
+            color: rgba(255, 0, 0, 0.12);
+            z-index: 1000;
+            pointer-events: none;
+            white-space: pre;
+            /* Preserve whitespace and allow line breaks */
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .house {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .room {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            margin: 10px;
+            padding: 15px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+
+        button {
+            background-color: #3498db;
+            color: white;
+            padding: 10px;
+            margin: 5px;
+            cursor: pointer;
+            border: none;
+            border-radius: 4px;
+        }
+
+        button.shutdown {
+            background-color: #e74c3c;
+        }
+
+        header {
+            background-color: #333;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #444;
+            overflow: hidden;
+        }
+
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        section {
+            padding: 20px;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: bold;
+            /* Making the text bold (gras) */
+            font-style: italic;
+            /* Making the text italic */
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Smart Property Management</h1>
+    </header>
+
+    <nav>
+        <a href="/homepage">Index</a>
+        <a href="/home">Home</a>
+        <a href="/farm">Farm</a>
+        <a href="/farmHouse">farmHouse</a>
+        <a href="/restaurantHammamet">RestaurantHammamet</a>
+        <a href="/coffeHammamet">CoffeHammamet</a>
+        <a href="/account_settings">account_settings</a>
+        <a href="/logout">Disconnect</a>
+        <!-- Add more property links as needed -->
+    </nav>
+
+    <section>
+        <h2>Welcome {{username}} to Your Garden</h2>
+        <p>
+            Hello {{username}}! Welcome to your smart property management system. You are currently managing the
+            property located at [Property Place].
+            Explore the different sections to control and monitor various aspects of your property, including the house,
+            garden, farm, and more.
+            Enjoy the convenience of automation and make the most of your smart home.
+        </p>
+
+
+        <div>
+            <h3>Garden Controls</h3>
+            <button onclick="activateSystem()">Activate System</button>
+            <button onclick="shutdownSystem()" class="shutdown">Shutdown System</button>
+            <button onclick="toggleLights()">Toggle Lights</button>
+
+            <!-- Add more buttons as needed -->
+        </div>
+        <div class="house">
+
+            <div class="room">
+                <h3>Salon</h3>
+                <!-- Add controls for the salon -->
+                <button onclick="activateSalon()">Activate Salon</button>
+                <button onclick="shutdownSalon()" class="shutdown">Shutdown Salon</button>
+                <button onclick="toggleLights()">Toggle Lights</button>
+
+                <!-- Add more buttons as needed for the salon -->
+            </div>
+
+            <div class="room">
+                <h3>Cuisine (Kitchen)</h3>
+                <!-- Add controls for the kitchen -->
+                <button onclick="activateKitchen()">Activate Kitchen</button>
+                <button onclick="shutdownKitchen()" class="shutdown">Shutdown Kitchen</button>
+                <button onclick="toggleLights()">Toggle Lights</button>
+
+                <!-- Add more buttons as needed for the kitchen -->
+            </div>
+
+            <div class="room">
+                <h3>Bedroom 1</h3>
+                <!-- Add controls for bedroom 1 -->
+                <button onclick="activateBedroom1()">Activate Bedroom 1</button>
+                <button onclick="shutdownBedroom1()" class="shutdown">Shutdown Bedroom 1</button>
+                <button onclick="toggleLights()">Toggle Lights</button>
+
+                <!-- Add more buttons as needed for bedroom 1 -->
+            </div>
+
+            <div class="room">
+                <h3>Bedroom 2</h3>
+                <!-- Add controls for bedroom 1 -->
+                <button onclick="activateBedroom2()">Activate Bedroom 2</button>
+                <button onclick="shutdownBedroom2()" class="shutdown">Shutdown Bedroom 2</button>
+                <button onclick="toggleLights()">Toggle Lights</button>
+
+                <!-- Add more buttons as needed for bedroom 1 -->
+            </div>
+
+            <div class="room">
+                <h3>Bathroom 1</h3>
+                <!-- Add controls for bedroom 1 -->
+                <button onclick="activateBathroom1()">Activate Bedroom 2</button>
+                <button onclick="shutdownBathroom1()" class="shutdown">Shutdown Bedroom 2</button>
+                <button onclick="toggleLights()">Toggle Lights</button>
+
+                <!-- Add more buttons as needed for bedroom 1 -->
+            </div>
+
+            <div class="room">
+                <h3>Bathroom 2</h3>
+                <!-- Add controls for bedroom 1 -->
+                <button onclick="activateBathroom2()">Activate Bedroom 2</button>
+                <button onclick="shutdownBathroom2()" class="shutdown">Shutdown Bedroom 2</button>
+                <button onclick="toggleLights()">Toggle Lights</button>
+
+                <!-- Add more buttons as needed for bedroom 1 -->
+            </div>
+
+            <!-- Add more rooms as needed -->
+
+        </div>
+
+
+
+        <!-- Your other content goes here -->
+
+    </section>
+
+    <script>
+        // Example JavaScript functions
+        function activateSystem() {
+            // Add logic to activate the system
+            alert('System activated!');
+        }
+
+        function shutdownSystem() {
+            // Add logic to shutdown the system
+            alert('System shut down!');
+        }
+
+        function toggleLights() {
+            // Add logic to toggle lights
+            alert('Lights toggled!');
+        }
+
+        // Example room-specific functions
+        function activateSalon() {
+            alert('Salon activated!');
+        }
+
+        function shutdownSalon() {
+            alert('Salon shut down!');
+        }
+
+        function activateKitchen() {
+            alert('Kitchen activated!');
+        }
+
+        function shutdownKitchen() {
+            alert('Kitchen shut down!');
+        }
+
+        function activateBedroom1() {
+            alert('Bedroom 1 activated!');
+        }
+
+        function shutdownBedroom1() {
+            alert('Bedroom 1 shut down!');
+        }
+        function activateBedroom2() {
+            alert('Bedroom 2 activated!');
+        }
+
+        function shutdownBedroom2() {
+            alert('Bedroom 2 shut down!');
+        }
+        function activateBathroom1() {
+            alert('Bathroom 1 activated!');
+        }
+
+        function shutdownBathroom1() {
+            alert('Bathroom 1 shut down!');
+        }
+        function activateBathroom2() {
+            alert('Bathroom 2 activated!');
+        }
+
+        function shutdownBathroom2() {
+            alert('Bathroom 2 shut down!');
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <title>Login</title>
+    <style>
+        body::before {
+            content: "  Une Version Demonstartive Sous Les Droits Du";
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+            font-size: 40px;
+            font-weight: bold;
+            color: rgba(255, 0, 0, 0.12);
+            z-index: 1000;
+            pointer-events: none;
+            white-space: pre;
+            /* Preserve whitespace and allow line breaks */
+        }
+
+        body::after {
+            content: "     Créateur Wael Gabsi";
+            position: fixed;
+            top: 60%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+            font-size: 40px;
+            font-weight: bold;
+            color: rgba(255, 0, 0, 0.12);
+            z-index: 1000;
+            pointer-events: none;
+            white-space: pre;
+            /* Preserve whitespace and allow line breaks */
+        }
+      
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #333;
+            /* Dark background color */
+            color: #fff;
+            /* White text */
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 18px;
+            margin-bottom: 40px;
+        }
+
+        form {
+            background-color: #444;
+            /* Darker background color for form */
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            width: 80%;
+            max-width: 400px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 20px;
+            color: #fff;
+            /* White text */
+            font-size: 18px;
+        }
+
+        input {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 30px;
+            box-sizing: border-box;
+            border: 2px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        input.error {
+            border-color: #e74c3c;
+            /* Red border color */
+        }
+
+        button {
+            background-color: #3498db;
+            /* Blue button */
+            color: #fff;
+            /* White text */
+            padding: 20px 30px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+            /* Darker blue on hover */
+        }
+
+        button.shake {
+            animation: shake 0.5s;
+        }
+
+        @keyframes shake {
+
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+
+            20%,
+            60% {
+                transform: translateX(-10px);
+            }
+
+            40%,
+            80% {
+                transform: translateX(10px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1> SMART PROPERTY </h1>
+    <p>Your security is our satisfaction</p>
+    {% if error %}
+    <p class="error">{{ error }}</p>
+    {% endif %}
+    <form action="/login" method="post" onsubmit="return validateForm()">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        <br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <br>
+        <button type="submit" id="loginBtn">Login</button>
+    </form>
+
+
+    <script>
+        function disableBackButton() {
+            window.history.forward();  // Attempt to forward to the next page
+            setTimeout("disableBackButton()", 0);
+        }  </script>
+
+    {% if logout %}
+    <script>
+        console.log('Logout is true.');
+        disableBackButton();
+
+    </script>{% endif %}
+
+
+    <script>
+        // Check if the login is unsuccessful and add error classes
+        // This is just a placeholder for demonstration; you would implement this logic in your server-side code.
+        const loginButton = document.querySelector('button');
+        const passwordInput = document.getElementById('password');
+
+        loginButton.addEventListener('click', () => {
+            // Replace this with actual logic to check if login is unsuccessful
+            const isLoginUnsuccessful = true;
+
+            if (isLoginUnsuccessful) {
+                loginButton.classList.add('shake');
+                passwordInput.classList.add('error');
+
+                // Remove the shake and error classes after the animation duration (0.5s)
+                setTimeout(() => {
+                    loginButton.classList.remove('shake');
+                    passwordInput.classList.remove('error');
+                }, 500);
+            }
+        });
+    </script>
+    <br>
+</body>
+
+</html>
