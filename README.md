@@ -18,7 +18,7 @@ Clone the repository:
 
 bash
 Copier le code
-git clone https://github.com/yourusername/smart-property-management.git
+git clone https://github.com/GABSIWAEL/smart-property-management.git
 cd smart-property-management
 Install dependencies:
 
